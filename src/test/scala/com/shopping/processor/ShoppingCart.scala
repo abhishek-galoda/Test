@@ -1,5 +1,5 @@
+package com.shopping.processor
 
-import com.shopping.processor.ShoppingCart
 import org.scalatest.{BeforeAndAfter, FunSuite}
 
 import scala.collection.mutable.ListBuffer
@@ -7,7 +7,7 @@ import scala.collection.mutable.ListBuffer
 class TestShoppingCart extends FunSuite with BeforeAndAfter {
 
   var shoppingCart: ShoppingCart = _
-  var listofFruits: ListBuffer[String]=new ListBuffer[String]
+  var listofFruits: ListBuffer[String] = new ListBuffer[String]
 
 
   before {
@@ -16,15 +16,14 @@ class TestShoppingCart extends FunSuite with BeforeAndAfter {
   }
 
   private def addOranges(count: Int) {
-    for ( i <- 1 to count) {
-      listofFruits+="Orange"
+    for (i <- 1 to count) {
+      listofFruits += "Orange"
     }
-
   }
 
   private def addApples(count: Int) {
-    for ( i <- 1 to count) {
-      listofFruits+="Apple"
+    for (i <- 1 to count) {
+      listofFruits += "Apple"
     }
   }
 
@@ -43,7 +42,7 @@ class TestShoppingCart extends FunSuite with BeforeAndAfter {
   }
 
   test("An case insenstive apple should cost 0.6") {
-    listofFruits+="apPLe"
+    listofFruits += "apPLe"
     assert(shoppingCart.checkout(listofFruits.toList) == 0.6)
   }
 
@@ -53,12 +52,12 @@ class TestShoppingCart extends FunSuite with BeforeAndAfter {
   }
 
   test("2 Oranges should cost 0.5") {
-    addApples(1)
+    addOranges(2)
     assert(shoppingCart.checkout(listofFruits.toList) == 0.5)
   }
 
   test("An case insenstive orange should cost 0.25") {
-    listofFruits+="oRAnge"
+    listofFruits += "oRAnge"
     assert(shoppingCart.checkout(listofFruits.toList) == 0.25)
   }
 
