@@ -6,8 +6,7 @@ class ShoppingCart {
   var ORANGE = new FruitType("ORANGE", 0.25)
 
   /**
-    * This method will counts the number of fruits applies price and adds them up.
-    *
+    * This method will calculate the total price for Apple and Oranges in shopping cart, after applying offer.
     * @param fruits
     * @return Total price of Apples and Oranges after applied offer
     */
@@ -17,9 +16,8 @@ class ShoppingCart {
     applesPrice(offer2for1) + orangesPrice(offer3for2)
   }
 
-  /** This methods counts the number of fruits of particular type and then apply the associated offer
+  /** This methods counts the number of fruits of particular type and then applies the associated offer
     * Note: Offer is a function which has been passed as a parameter
-    *
     * @param listOfFruits
     * @param fruit
     * @param price
@@ -27,7 +25,7 @@ class ShoppingCart {
     * @return Price of Fruit type passed after applying offer
     */
   private def calculatePrice(listOfFruits: List[String], fruit: String, price: Double)(applyOffer: Int => Int): Double = {
-    val fruitCount= listOfFruits.filter(_.equalsIgnoreCase(fruit)).length
+    val fruitCount = listOfFruits.filter(_.equalsIgnoreCase(fruit)).length
     applyOffer(fruitCount) * price
   }
 
