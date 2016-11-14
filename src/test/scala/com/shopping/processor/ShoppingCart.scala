@@ -58,12 +58,6 @@ class TestShoppingCart extends FunSuite with BeforeAndAfter {
     assert(shoppingCart.checkout(listofFruits.toList) == 0.85)
   }
 
-  test("2 Apple and 2 Orange should cost 0.85") {
-    addOranges(2)
-    addApples(2)
-    assert(shoppingCart.checkout(listofFruits.toList) == 1.7)
-  }
-
   //With Offers scenarios -Apple alone
   test("Two Apples  should cost 0.6 after applying offer of 2 for 1") {
     addApples(2)
