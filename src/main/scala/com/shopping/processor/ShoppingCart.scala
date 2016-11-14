@@ -9,7 +9,7 @@ class ShoppingCart {
     * This method will counts the number of fruits applies price and adds them up.
     *
     * @param fruits
-    * @return
+    * @return Total price of Apples and Oranges after applied offer
     */
   def checkout(fruits: List[String]): Double = {
     val applesPrice = calculatePrice(fruits, APPLE.name, APPLE.price)(_);
@@ -24,15 +24,11 @@ class ShoppingCart {
     * @param fruit
     * @param price
     * @param applyOffer
-    * @return
+    * @return Price of Fruit type passed after applying offer
     */
   private def calculatePrice(listOfFruits: List[String], fruit: String, price: Double)(applyOffer: Int => Int): Double = {
-    val fruitCount=count(listOfFruits, fruit)
+    val fruitCount= listOfFruits.filter(_.equalsIgnoreCase(fruit)).length
     applyOffer(fruitCount) * price
-  }
-
-  private def count(fruits: List[String], fruit: String): Int = {
-    fruits.filter(_.equalsIgnoreCase(fruit)).length
   }
 
   private def offer3for2(count: Int): Int = {
